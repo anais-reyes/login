@@ -1,20 +1,31 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const StyledButton = styled.button`
-	background: #a8a8a8;
-	height: 60px;
-	width: 200px;
+	background: darkblue;
 	color: white;
-	border-radius: 50px;
-	font-size: 1.3em;
-	margin-top: 150px;
+	width: 150px;
+	height: 40px;
+	font-size: 1em;
+	border-radius: 5px;
+	display: block;
+	margin: 5px;
 `;
 
-class Button extends Component {
-	render() {
-		return <StyledButton>Button</StyledButton>;
-	}
-}
+const StyledLabel = styled.label`
+	margin: 5px;
+`;
 
-export default Button;
+export default function Button({ button: { title, disabled, labeldisplay } }) {
+	return (
+		<div>
+			<div className="title">
+				<StyledButton style={{ backgroundColor: disabled == true ? 'grey' : 'darkblue' }} disabled={disabled}>
+					{title}
+				</StyledButton>
+				<StyledLabel style={{ display: labeldisplay }}>{title}</StyledLabel>
+			</div>
+		</div>
+	);
+}

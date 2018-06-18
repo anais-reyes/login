@@ -1,23 +1,27 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const StyledInput = styled.input`
+	border: 1px solid grey;
+	color: grey;
+	width: 250px;
 	height: 40px;
-	width: 400px;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 10px;
-	font-size: 1.1em;
+	font-size: 1em;
 	border-radius: 5px;
-	border: 1px solid gray;
-	padding: 1%;
+	margin: 5px;
+	padding: 5px;
 `;
 
-class Input extends Component {
-	render() {
-		return <StyledInput placeholder="Input" />;
-	}
-}
+const StyledLabel = styled.label`
+	margin: 5px;
+	display: block;
+`;
 
-export default Input;
+export default function Input({ input: { title, disabled, labeldisplay } }) {
+	return (
+		<div>
+			<StyledInput disabled={disabled} placeholder={title} type="text" />
+			<StyledLabel style={{ display: labeldisplay }}>{title}</StyledLabel>
+		</div>
+	);
+}
