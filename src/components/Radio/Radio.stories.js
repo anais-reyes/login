@@ -10,8 +10,6 @@ export const radio = {
 	checked: false,
 };
 
-storiesOf('Radio', module).add('Default', () => <Radio radio={radio} />);
-storiesOf('Radio', module).add('Disabled', () => (
-	<Radio radio={{ ...radio, disabled: true, title: 'Disabled radio' }} />
-));
-storiesOf('Radio', module).add('Error', () => <Radio radio={{ ...radio, title: 'Error radio', checked: true }} />);
+storiesOf('Radio', module).add('Default', () => <Radio />);
+storiesOf('Radio', module).add('Disabled', () => <Radio disabled={true} title="Disabled radio" />);
+storiesOf('Radio', module).add('Error', () => <Radio title="Error radio" checked={true} />);

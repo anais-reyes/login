@@ -9,11 +9,22 @@ const StyledLabel = styled.label`
 	margin: 10px 5px 5px 0;
 `;
 
-export default function Radio({ radio: { checked, disabled, title } }) {
-	return (
-		<div>
-			<StyledRadio type="radio" disabled={disabled} />
-			<StyledLabel>{title}</StyledLabel>
-		</div>
-	);
+class Radio extends Component {
+	render() {
+		const { checked, disabled, title } = this.props;
+		return (
+			<div>
+				<StyledRadio type="radio" disabled={disabled} />
+				<StyledLabel>{title}</StyledLabel>
+			</div>
+		);
+	}
 }
+
+Radio.defaultProps = {
+	title: 'Default Radio',
+	disabled: false,
+	checked: false,
+};
+
+export default Radio;

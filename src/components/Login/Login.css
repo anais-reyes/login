@@ -30,7 +30,7 @@ form {
 	margin-top: 15px;
 }
 
-input[type='text'] {
+input[type='text'].login {
 	margin-bottom: 5px;
 	margin-top: 15px;
 	width: 100%;

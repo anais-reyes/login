@@ -32,8 +32,20 @@ class Login extends Component {
 				<div className="parent">
 					<div className="container">
 						<form>
-							<input id="user" onChange={this.handleChange} placeholder="User" type="text" />
-							<input id="password" onChange={this.handleChange} placeholder="Password" type="text" />
+							<input
+								class="login"
+								id="user"
+								onChange={this.handleChange}
+								placeholder="User"
+								type="text"
+							/>
+							<input
+								class="login"
+								id="password"
+								onChange={this.handleChange}
+								placeholder="Password"
+								type="text"
+							/>
 							<button type="button" onClick={this.handleClick} to="/dashboard">
 								Login
 							</button>
@@ -46,3 +58,4 @@ class Login extends Component {
 }
 
 export default Login;
+// Coment
