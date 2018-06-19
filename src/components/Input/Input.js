@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const StyledInput = styled.input`
@@ -17,11 +17,22 @@ const StyledLabel = styled.label`
 	display: block;
 `;
 
-export default function Input({ input: { title, disabled, labeldisplay } }) {
-	return (
-		<div>
-			<StyledInput disabled={disabled} placeholder={title} type="text" />
-			<StyledLabel style={{ display: labeldisplay }}>{title}</StyledLabel>
-		</div>
-	);
+class Input extends Component {
+	render() {
+		const { title, disabled, labeldisplay } = this.props;
+		return (
+			<div>
+				<StyledInput disabled={disabled} placeholder={title} type="text" />
+				<StyledLabel style={{ display: labeldisplay }}>{title}</StyledLabel>
+			</div>
+		);
+	}
 }
+
+Input.defaultProps = {
+	disabled: false,
+	title: 'Default Placeholder',
+	labeldisplay: 'none',
+};
+
+export default Input;

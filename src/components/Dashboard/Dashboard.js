@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './Dashboard.css';
-import Button from './../Button/Button';
-import Input from './../Input/Input';
-import Dropdown from './../Dropdown/Dropdown';
 
 class Dashboard extends Component {
 	render() {
 		return (
 			<div>
-				<Dropdown />
-				<Button />
-				<Input />
+				<p>Dashboard</p>
+				<button>
+					<Link to="/form">Primer ejercicio</Link>
+				</button>
 			</div>
 		);
 	}

@@ -1,5 +1,4 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const StyledButton = styled.button`
@@ -17,15 +16,30 @@ const StyledLabel = styled.label`
 	margin: 5px;
 `;
 
-export default function Button({ button: { title, disabled, labeldisplay } }) {
-	return (
-		<div>
-			<div className="title">
-				<StyledButton style={{ backgroundColor: disabled == true ? 'grey' : 'darkblue' }} disabled={disabled}>
-					{title}
-				</StyledButton>
-				<StyledLabel style={{ display: labeldisplay }}>{title}</StyledLabel>
+class Button extends Component {
+	render() {
+		const { title, disabled, labeldisplay } = this.props;
+
+		return (
+			<div>
+				<div className="title">
+					<StyledButton
+						style={{ backgroundColor: disabled === true ? 'grey' : 'darkblue' }}
+						disabled={disabled}
+					>
+						{title}
+					</StyledButton>
+					<StyledLabel style={{ display: labeldisplay }}>{title}</StyledLabel>
+				</div>
 			</div>
-		</div>
-	);
+		);
+	}
 }
+
+Button.defaultProps = {
+	title: 'Button Default',
+	disabled: false,
+	labeldisplay: 'none',
+};
+
+export default Button;

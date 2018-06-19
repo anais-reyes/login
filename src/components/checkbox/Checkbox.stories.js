@@ -10,10 +10,6 @@ export const checkbox = {
 	disabled: false,
 };
 
-storiesOf('Checkbox', module).add('Default', () => <Checkbox checkbox={checkbox} />);
-storiesOf('Checkbox', module).add('Disabled', () => (
-	<Checkbox checkbox={{ ...checkbox, disabled: true, title: 'Disabled Checkbox' }} />
-));
-storiesOf('Checkbox', module).add('Error', () => (
-	<Checkbox checkbox={{ ...checkbox, checked: true, title: 'Error Checkbox' }} />
-));
+storiesOf('Checkbox', module).add('Default', () => <Checkbox />);
+storiesOf('Checkbox', module).add('Disabled', () => <Checkbox disabled={true} title="Disabled Checkbox" />);
+storiesOf('Checkbox', module).add('Error', () => <Checkbox checked={true} title="Error Checkbox" />);
