@@ -6,4 +6,3 @@ it('renders', () => {
 	const wrapper = shallow(<Hello name="Jack" />);
 	expect(wrapper.find('p').text()).toEqual('Hello, Jack!');
 });
-// comment
