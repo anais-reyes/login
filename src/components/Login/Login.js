@@ -33,14 +33,14 @@ class Login extends Component {
 					<div className="container">
 						<form>
 							<input
-								class="login"
+								className="login"
 								id="user"
 								onChange={this.handleChange}
 								placeholder="User"
 								type="text"
 							/>
 							<input
-								class="login"
+								className="login"
 								id="password"
 								onChange={this.handleChange}
 								placeholder="Password"
