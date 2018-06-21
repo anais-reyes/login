@@ -17,6 +17,10 @@ const StyledLabel = styled.label`
 `;
 
 class Button extends Component {
+	handleClick = () => {
+		console.log('button');
+	};
+
 	render() {
 		const { title, disabled, labeldisplay } = this.props;
 
@@ -24,6 +28,7 @@ class Button extends Component {
 			<div>
 				<div className="title">
 					<StyledButton
+						onClick={this.handleClick}
 						style={{ backgroundColor: disabled === true ? 'grey' : 'darkblue' }}
 						disabled={disabled}
 					>
@@ -43,3 +48,5 @@ Button.defaultProps = {
 };
 
 export default Button;
+
+//COMMENT
