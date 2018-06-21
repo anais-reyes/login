@@ -10,6 +10,10 @@ const StyledLabel = styled.label`
 `;
 
 class Radio extends Component {
+	constructor() {
+		super();
+		count: 0;
+	}
 	render() {
 		const { checked, disabled, title } = this.props;
 		return (
