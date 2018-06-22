@@ -20,6 +20,7 @@ class ToDo extends Component {
 			text: null,
 			tasks: [],
 			disabledButton: true,
+			test: '',
 		}; // End State
 	} // End constructor
 
@@ -70,7 +71,8 @@ class ToDo extends Component {
 	}; //End addTask
 
 	toggleChange = event => {
-		console.log(event.target.id);
+		this.state.tasks[event.target.id].checked = !this.state.tasks[event.target.id].checked;
+		this.setState({ test: event.target.id });
 	};
 
 	render() {
@@ -92,9 +94,9 @@ class ToDo extends Component {
 								<li key={key}>
 									<Checkbox
 										toggleChange={this.toggleChange}
-										text={'line-through'}
 										title={task.task}
 										id={task.id}
+										checked={task.checked ? true : false}
 									/>
 								</li>
 							);
@@ -111,3 +113,4 @@ class ToDo extends Component {
 } // End ToDo
 
 export default ToDo;
+// comment
