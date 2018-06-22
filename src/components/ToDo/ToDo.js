@@ -12,6 +12,10 @@ const StyledUl = styled.ul`
 	list-style-type: none;
 `;
 
+const inlineDiv = styled.div`
+	display: inline-block;
+`;
+
 class ToDo extends Component {
 	constructor() {
 		super();
@@ -103,10 +107,15 @@ class ToDo extends Component {
 						}) // End map
 					)}
 				</StyledUl>
-
-				<Button id={'all-tasks'} handleClick={this.handleClick} title={'All Tasks'} />
-				<Button id={'completed-tasks'} handleClick={this.handleClick} title={'Completed Tasks'} />
-				<Button id={'unfinished-tasks'} handleClick={this.handleClick} title={'Unfinished Tasks'} />
+				<inlineDiv>
+					<Button id={'all-tasks'} handleClick={this.handleClick} title={'All Tasks'} />
+				</inlineDiv>
+				<inlineDiv>
+					<Button id={'completed-tasks'} handleClick={this.handleClick} title={'Completed Tasks'} />
+				</inlineDiv>
+				<inlineDiv>
+					<Button id={'unfinished-tasks'} handleClick={this.handleClick} title={'Unfinished Tasks'} />
+				</inlineDiv>
 			</div>
 		); //End return
 	} //End render
