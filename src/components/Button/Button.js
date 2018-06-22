@@ -17,10 +17,6 @@ const StyledLabel = styled.label`
 `;
 
 class Button extends Component {
-	handleClick = () => {
-		console.log('button');
-	};
-
 	render() {
 		const { title, disabled, labeldisplay } = this.props;
 
@@ -28,9 +24,10 @@ class Button extends Component {
 			<div>
 				<div className="title">
 					<StyledButton
-						onClick={this.handleClick}
+						onClick={this.props.handleClick}
 						style={{ backgroundColor: disabled === true ? 'grey' : 'darkblue' }}
 						disabled={disabled}
+						id={this.props.id}
 					>
 						{title}
 					</StyledButton>
@@ -42,6 +39,7 @@ class Button extends Component {
 }
 
 Button.defaultProps = {
+	id: '',
 	title: 'Button Default',
 	disabled: false,
 	labeldisplay: 'none',

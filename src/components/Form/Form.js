@@ -29,7 +29,7 @@ class Form extends Component {
 	render() {
 		return (
 			<StyledContainer>
-				<p>Form</p>
+				<h2>Form</h2>
 				<Input title={'Username'} />
 				<Input title={'Password'} />
 				<Dropdown />

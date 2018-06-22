@@ -22,7 +22,7 @@ class Input extends Component {
 		const { title, disabled, labeldisplay } = this.props;
 		return (
 			<div>
-				<StyledInput disabled={disabled} placeholder={title} type="text" />
+				<StyledInput onChange={this.props.handleChange} disabled={disabled} placeholder={title} type="text" />
 				<StyledLabel style={{ display: labeldisplay }}>{title}</StyledLabel>
 			</div>
 		);

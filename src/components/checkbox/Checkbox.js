@@ -15,8 +15,20 @@ class Checkbox extends Component {
 		const { checked, disabled, title } = this.props;
 		return (
 			<div>
-				<StyledCheckbox className="test" disabled={disabled} type="checkbox" />
-				<StyledLabel>{title}</StyledLabel>
+				<StyledCheckbox
+					id={this.props.id}
+					onChange={this.props.toggleChange}
+					disabled={disabled}
+					type="checkbox"
+				/>
+				<StyledLabel
+					style={{
+						display: this.props.labeldisplay,
+						textDecoration: this.props.checked === false ? 'none' : 'underline',
+					}}
+				>
+					{title}
+				</StyledLabel>
 			</div>
 		);
 	}
@@ -25,7 +37,9 @@ class Checkbox extends Component {
 Checkbox.defaultProps = {
 	checked: false,
 	title: 'Default Checkbox',
+	labeldisplay: 'inline-block',
 	disabled: false,
+	text: 'none',
 };
 
 export default Checkbox;
