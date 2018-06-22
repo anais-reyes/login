@@ -24,7 +24,7 @@ class Checkbox extends Component {
 				<StyledLabel
 					style={{
 						display: this.props.labeldisplay,
-						textDecoration: this.props.checked === false ? 'none' : 'underline',
+						textDecoration: this.props.checked === false ? 'none' : 'line-through',
 					}}
 				>
 					{title}
@@ -39,7 +39,6 @@ Checkbox.defaultProps = {
 	title: 'Default Checkbox',
 	labeldisplay: 'inline-block',
 	disabled: false,
-	text: 'none',
 };
 
 export default Checkbox;
