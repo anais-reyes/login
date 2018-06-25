@@ -1,13 +1,5 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
-
-const StyledRadio = styled.input`
-	font-size: 1em;
-	margin: 5px;
-`;
-const StyledLabel = styled.label`
-	margin: 10px 5px 5px 0;
-`;
+import { StyledLabel, StyledRadio } from './RadioStyled';
 
 class Radio extends Component {
 	constructor() {
@@ -17,7 +9,7 @@ class Radio extends Component {
 	render() {
 		const { checked, disabled, title } = this.props;
 		return (
-			<div>
+			<div id="radio">
 				<StyledRadio type="radio" disabled={disabled} />
 				<StyledLabel>{title}</StyledLabel>
 			</div>

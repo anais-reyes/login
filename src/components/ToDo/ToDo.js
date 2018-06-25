@@ -1,28 +1,26 @@
 // Library
 import React, { Component } from 'react';
-import styled, { consolidateStreamedStyles } from 'styled-components';
 
 // Components
 import Checkbox from '../Checkbox/Checkbox';
 import Input from '../Input/Input';
 import Button from '../Button/Button';
 
-//Styled Component
-const StyledUl = styled.ul`
-	list-style-type: none;
-`;
+//StyledComponents
+import { StyledContainer, StyledUl, inlineDiv } from './ToDoStyled';
 
-const inlineDiv = styled.div`
-	display: inline-block;
-`;
-
+//ToDo
 class ToDo extends Component {
 	constructor() {
 		super();
 		this.state = {
 			originalTasks: [],
 			text: null,
-			tasks: [],
+			tasks: [
+				{ task: 'some', id: 0, checked: true },
+				{ task: 'some2', id: 1, checked: true },
+				{ task: 'some3', id: 2, checked: false },
+			],
 			disabledButton: true,
 			test: '',
 		}; // End State
@@ -33,23 +31,6 @@ class ToDo extends Component {
 			? this.setState({ disabledButton: false, text: event.target.value })
 			: this.setState({ disabledButton: true, text: event.target.value });
 	}; // End handleChange
-
-	handleClick = event => {
-		switch (event.target.id) {
-			case 'add-task':
-				this.addTask(event);
-				break;
-			case 'all-tasks':
-				this.allTasks(event);
-				break;
-			case 'completed-tasks':
-				this.completedTasks(event);
-				break;
-			case 'unfinished-tasks':
-				this.unfinishedTasks(event);
-				break;
-		} //End switch
-	}; // End hanldeClick
 
 	unfinishedTasks = event => {
 		let filter = this.state.originalTasks.filter(task => {
@@ -65,27 +46,33 @@ class ToDo extends Component {
 		this.setState({ tasks: filter });
 	}; // End completedTasks
 
-	allTasks = event => {
+	allTasks = () => {
 		this.setState({ tasks: this.state.originalTasks });
 	}; // End allTasks
 
-	addTask = event => {
+	addTask = () => {
 		let newArray = [...this.state.tasks, { task: this.state.text, checked: false, id: this.state.tasks.length }];
 		this.setState({ tasks: newArray, originalTasks: newArray });
 	}; //End addTask
 
 	toggleChange = event => {
-		this.state.tasks[event.target.id].checked = !this.state.tasks[event.target.id].checked;
-		this.setState({ test: event.target.id });
+		console.log(this.state.tasks[event.target.id], this.state.tasks);
+		let tasks = this.state.tasks;
+		let newChecked = this.state.tasks[event.target.id].checked === true ? false : true;
+		tasks[event.target.id].checked = newChecked;
+
+		this.setState({ tasks: tasks });
 	};
 
 	render() {
 		return (
-			<div>
+			<StyledContainer>
 				<Input handleChange={this.handleChange} title={this.state.text} />
 				<Button
 					disabled={this.state.disabledButton}
-					handleClick={this.handleClick}
+					onClick={() => {
+						this.addTask();
+					}}
 					id={'add-task'}
 					title={'Add task'}
 				/>
@@ -108,15 +95,33 @@ class ToDo extends Component {
 					)}
 				</StyledUl>
 				<inlineDiv>
-					<Button id={'all-tasks'} handleClick={this.handleClick} title={'All Tasks'} />
+					<Button
+						id={'all-tasks'}
+						onClick={() => {
+							this.allTasks();
+						}}
+						title={'All Tasks'}
+					/>
 				</inlineDiv>
 				<inlineDiv>
-					<Button id={'completed-tasks'} handleClick={this.handleClick} title={'Completed Tasks'} />
+					<Button
+						id={'completed-tasks'}
+						onClick={() => {
+							this.completedTasks();
+						}}
+						title={'Completed Tasks'}
+					/>
 				</inlineDiv>
 				<inlineDiv>
-					<Button id={'unfinished-tasks'} handleClick={this.handleClick} title={'Unfinished Tasks'} />
+					<Button
+						id={'unfinished-tasks'}
+						onClick={() => {
+							this.unfinishedTasks();
+						}}
+						title={'Unfinished Tasks'}
+					/>
 				</inlineDiv>
-			</div>
+			</StyledContainer>
 		); //End return
 	} //End render
 } // End ToDo
