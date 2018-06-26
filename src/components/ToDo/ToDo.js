@@ -16,11 +16,7 @@ class ToDo extends Component {
 		this.state = {
 			originalTasks: [],
 			text: null,
-			tasks: [
-				{ task: 'some', id: 0, checked: true },
-				{ task: 'some2', id: 1, checked: true },
-				{ task: 'some3', id: 2, checked: false },
-			],
+			tasks: [],
 			disabledButton: true,
 			test: '',
 		}; // End State
@@ -43,6 +39,7 @@ class ToDo extends Component {
 		let filter = this.state.originalTasks.filter(task => {
 			return task.checked;
 		});
+
 		this.setState({ tasks: filter });
 	}; // End completedTasks
 
@@ -56,11 +53,9 @@ class ToDo extends Component {
 	}; //End addTask
 
 	toggleChange = event => {
-		console.log(this.state.tasks[event.target.id], this.state.tasks);
 		let tasks = this.state.tasks;
-		let newChecked = this.state.tasks[event.target.id].checked === true ? false : true;
-		tasks[event.target.id].checked = newChecked;
-
+		let newChecked = this.state.originalTasks[event.target.id].checked === true ? false : true;
+		this.state.originalTasks[event.target.id].checked = newChecked;
 		this.setState({ tasks: tasks });
 	};
 
@@ -127,4 +122,3 @@ class ToDo extends Component {
 } // End ToDo
 
 export default ToDo;
-// comment
