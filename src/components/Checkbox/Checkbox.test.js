@@ -20,3 +20,5 @@ describe('Having a checkbox', () => {
 		expect(wrapper.instance().props.checked).to.equal(false);
 	});
 });
+
+//Comment
